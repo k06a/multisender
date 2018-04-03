@@ -99,7 +99,7 @@ contract UpgradebleStormSender is OwnedUpgradeabilityStorage, Claimable {
         return count.mul(discountStep());
     }
 
-    function multisendToken(address token, address[] _contributors, uint256[] _balances) public hasFee payable {
+    function multisendToken(address token, address[] _contributors, uint256[] _balances) external hasFee payable {
         uint256 total = 0;
         require(_contributors.length <= arrayLimit());
         ERC20 erc20token = ERC20(token);
